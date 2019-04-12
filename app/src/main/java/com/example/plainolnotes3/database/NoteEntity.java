@@ -1,12 +1,19 @@
-package com.example.plainolnotes3.model;
+package com.example.plainolnotes3.database;
 
 import java.util.Date;
 
+import androidx.room.Entity;
+import androidx.room.Ignore;
+import androidx.room.PrimaryKey;
+
+@Entity(tableName = "notes")
 public class NoteEntity {
+    @PrimaryKey(autoGenerate = true)
     private int id;
     private Date date;
     private String text;
 
+    @Ignore
     public NoteEntity() {
     }
 
@@ -16,6 +23,7 @@ public class NoteEntity {
         this.text = text;
     }
 
+    @Ignore
     public NoteEntity(Date date, String text) {
         this.date = date;
         this.text = text;

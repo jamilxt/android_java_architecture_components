@@ -3,11 +3,9 @@ package com.example.plainolnotes3;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.example.plainolnotes3.model.NoteEntity;
+import com.example.plainolnotes3.database.NoteEntity;
 import com.example.plainolnotes3.ui.NotesAdapter;
 import com.example.plainolnotes3.utilities.SampleData;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -18,10 +16,8 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 import android.util.Log;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.EditText;
 
 import java.util.ArrayList;
 import java.util.List;
