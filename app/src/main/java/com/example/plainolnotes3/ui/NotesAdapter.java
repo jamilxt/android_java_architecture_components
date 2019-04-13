@@ -1,13 +1,16 @@
 package com.example.plainolnotes3.ui;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.plainolnotes3.EditorActivity;
 import com.example.plainolnotes3.R;
 import com.example.plainolnotes3.database.NoteEntity;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
 
@@ -15,6 +18,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+
+import static com.example.plainolnotes3.ui.Constants.NOTE_ID_KEY;
 
 public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.ViewHolder> {
 
@@ -39,6 +44,15 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.ViewHolder> 
         final NoteEntity note = mNotes.get(position);
         holder.mTextView.setText(note.getText());
 
+        holder.mFab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext, EditorActivity.class);
+                intent.putExtra(NOTE_ID_KEY, note.getId());
+                mContext.startActivity(intent);
+            }
+        });
+
     }
 
     @Override
@@ -49,6 +63,8 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.ViewHolder> 
     public class ViewHolder extends RecyclerView.ViewHolder {
         @BindView(R.id.note_text)
         TextView mTextView;
+        @BindView(R.id.fab)
+        FloatingActionButton mFab;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
