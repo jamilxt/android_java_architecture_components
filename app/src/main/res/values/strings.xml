@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Plain Ol\' Notes 3</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_add_sample_data">Add Sample Data</string>
+    <string name="action_delete_all">Delete All</string>
     <string name="title_activity_editor">EditorActivity</string>
     <string name="large_text">
         "Material is the metaphor.\n\n"
